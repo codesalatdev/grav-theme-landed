@@ -2,7 +2,7 @@
 	{% set intro_data = page.header.intro %}
 <!-- "One" -->
 	<section id="{{ id }}" class="spotlight style1 bottom">
-		<span class="image fit main"><img src="{{ url('theme://images/' ~ (intro_data.hero_image ?: 'pic02.jpg') ) }}" alt="{{ intro_data.hero_alt }}" /></span>
+		<span class="image fit main"><img src="{{ intro_data.hero_image ? intro_data.hero_image : url('theme://images/pic02.jpg') }}" alt="{{ intro_data.hero_alt }}" /></span>
 		<div class="content">
 			<div class="container">
 				<div class="row">
