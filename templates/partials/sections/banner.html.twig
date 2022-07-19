@@ -1,7 +1,7 @@
 {% if page.header.banner %}
 	{% set banner_data = page.header.banner %}
 <!-- Banner -->
-	<section id="{{ id }}" style="background-image: url('{{ url('theme://images/' ~ (banner_data.background_image ?: 'banner.jpg') ) }}')">
+	<section id="{{ id }}" style="background-image: url('{{ banner_data.background_image ? banner_data.background_image : url('theme://images/banner.jpg') }}')">
 		<div class="content">
 			<header>
 				<h2>{{ banner_data.headline }}</h2>
@@ -9,7 +9,7 @@
 					<p>{{ banner_data.quips|join('<br/>')|raw }}</p>
 				{% endif %}
 			</header>
-			<span class="image"><img src="{{ url('theme://images/' ~ (banner_data.hero_image ?: 'pic01.jpg') ) }}" alt="{{ banner_data.hero_alt }}" /></span>
+			<span class="image"><img src="{{ banner_data.hero_image ? banner_data.hero_image : url('theme://images/pic01.jpg' ) }}" alt="{{ banner_data.hero_alt }}" /></span>
 		</div>
 	{% if next_id %}
 		<a href="#{{ next_id }}" class="goto-next scrolly">Next</a>
